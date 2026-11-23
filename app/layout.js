@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#ece8e1',
+  themeColor: '#08070e',
 };
 
 // Applies the saved theme before first paint so there is no flash.
@@ -21,13 +21,13 @@ const themeScript = `
 (function(){try{
   var s=localStorage.getItem('vm-theme');
   var d=window.matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.dataset.theme = s || (d ? 'dark' : 'light');
-}catch(e){document.documentElement.dataset.theme='light';}})();
+  document.documentElement.dataset.theme = s || 'dark';
+}catch(e){document.documentElement.dataset.theme='dark';}})();
 `;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
