@@ -52,8 +52,8 @@ export default function Machine() {
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(32, host.clientWidth / host.clientHeight, 0.1, 100);
-      camera.position.set(0, 1.45, 9.4);
-      camera.lookAt(0, 0.15, 0);
+      camera.position.set(0, 1.02, 9.4);
+      camera.lookAt(0, 0.46, 0);
 
       // ---- materials -----------------------------------------------------
       const shell = new THREE.MeshStandardMaterial({ color: 0x1a1824, metalness: 0.86, roughness: 0.34 });
@@ -89,7 +89,7 @@ export default function Machine() {
 
       const lidGeo = new THREE.BoxGeometry(W, 0.1, D * 0.95);
       const lid = new THREE.Mesh(lidGeo, shell);
-      lid.position.set(0, 0.05, -D * 0.95 / 2);
+      lid.position.set(0, 0.05, D * 0.95 / 2);
       hinge.add(lid);
 
       // ---- the screen ------------------------------------------------------
@@ -104,13 +104,13 @@ export default function Machine() {
       const screenMat = new THREE.MeshBasicMaterial({ map: textures[0], toneMapped: false });
       const screenGeo = new THREE.PlaneGeometry(W * 0.92, D * 0.95 * 0.88);
       const screen = new THREE.Mesh(screenGeo, screenMat);
-      screen.position.set(0, 0.052, -D * 0.95 / 2);
-      screen.rotation.x = -Math.PI / 2;
+      screen.position.set(0, -0.004, D * 0.95 / 2);
+      screen.rotation.x = Math.PI / 2;
       hinge.add(screen);
 
       // light spilling off the panel onto the deck
       const glow = new THREE.PointLight(SCREENS[0].tone, 0, 6, 2);
-      glow.position.set(0, 0.9, -0.5);
+      glow.position.set(0, 0.82, 0.35);
       machine.add(glow);
 
       // ---- lighting --------------------------------------------------------
@@ -177,8 +177,8 @@ export default function Machine() {
           const e = 1 - Math.pow(1 - p, 3);
           hinge.rotation.x = OPEN * e;
           glow.intensity = 2.2 * Math.max(0, (p - 0.45) / 0.55);
-          camera.position.z = 9.4 - 3.1 * e;
-          camera.lookAt(0, 0.15, 0);
+          camera.position.z = 9.4 - 3.05 * e;
+          camera.lookAt(0, 0.46, 0);
 
           // swap which product is on screen
           if (t > swapAt) {
