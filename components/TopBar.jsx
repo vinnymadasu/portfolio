@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useLocale } from './LocaleProvider';
 
 export default function TopBar({ onOpenPalette }) {
-  const { t } = useLocale();
+  const { t, lang, langs, langNames, setLang } = useLocale();
   const [theme, setTheme] = useState('light');
   const [progress, setProgress] = useState(0);
 
@@ -30,7 +30,7 @@ export default function TopBar({ onOpenPalette }) {
     document.documentElement.dataset.theme = next;
     try { window.localStorage.setItem('vm-theme', next); } catch {}
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', next === 'dark' ? '#111111' : '#ece8e1');
+    if (meta) meta.setAttribute('content', next === 'dark' ? '#120f1a' : '#fffaf3');
   }
 
   return (
@@ -40,6 +40,16 @@ export default function TopBar({ onOpenPalette }) {
         <div className="wrap">
           <div className="mark"><i />VINEETH RAO MADASU</div>
           <div className="barTools">
+            <div className="langPick">
+              <span aria-hidden="true">{lang.toUpperCase()}</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></svg>
+              <label className="sr" htmlFor="langSelect">{t('ui.lang')}</label>
+              <select id="langSelect" value={lang} onChange={(e) => setLang(e.target.value)}>
+                {langs.map((code) => (
+                  <option key={code} value={code}>{langNames[code]}</option>
+                ))}
+              </select>
+            </div>
             <button type="button" className="gbtn" onClick={onOpenPalette}>
               <span className="lbl">{t('ui.search')}</span><kbd>⌘K</kbd>
             </button>
