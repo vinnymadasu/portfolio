@@ -92,22 +92,22 @@ kbd{font-family:"IBM Plex Mono",monospace;font-size:10px;border:1px solid var(--
 .langPick select option{background:var(--panel);color:var(--ink)}
 .langPick:focus-within{outline:2px solid var(--indigo);outline-offset:3px}
 
-.stage{position:relative;height:clamp(300px,52vh,560px);overflow:hidden;
-  border-bottom:1px solid var(--rule-2)}
-.stage::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(60% 70% at 50% 42%,color-mix(in srgb,var(--indigo) 14%,transparent),transparent 72%)}
-.stageCanvas{position:absolute;inset:0;z-index:1}
-.stageCanvas canvas{display:block;width:100%;height:100%}
-.stageCap{position:absolute;left:0;right:0;bottom:clamp(14px,2.4vw,26px);z-index:2;
-  display:flex;align-items:center;justify-content:center;gap:9px;
+/* ---------- entrance ---------- */
+.intro{position:fixed;inset:0;z-index:200;background:var(--bg);
+  opacity:1;transition:opacity .6s var(--e)}
+.intro.out{opacity:0;pointer-events:none}
+.intro::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 60% at 50% 46%,color-mix(in srgb,var(--indigo) 15%,transparent),transparent 74%)}
+.introStage{position:absolute;inset:0}
+.introStage canvas{display:block;width:100%;height:100%}
+.introSkip{position:absolute;right:clamp(16px,3vw,40px);bottom:clamp(16px,3vw,40px);
   font-size:10px;letter-spacing:.22em;color:var(--mute);
-  opacity:0;transition:opacity .8s var(--e) .9s}
-.stageCap.on{opacity:1}
-.stageDot{width:5px;height:5px;border-radius:50%;background:var(--d,var(--indigo));
-  box-shadow:0 0 10px var(--d,var(--indigo));transition:background .6s var(--e),box-shadow .6s var(--e)}
+  border:1px solid var(--rule);border-radius:4px;padding:9px 15px;
+  background:color-mix(in srgb,var(--bg) 70%,transparent);transition:.2s var(--e)}
+.introSkip:hover{color:var(--ink);border-color:var(--indigo)}
 
 /* ---------- the live greeting ---------- */
-.routing{padding:clamp(38px,6vw,76px) 0 0}
+.routing{padding:clamp(44px,7vw,92px) 0 0}
 .greet{font-family:"Archivo",sans-serif;font-weight:700;letter-spacing:-.035em;
   font-size:clamp(22px,3.5vw,40px);line-height:1.1;margin-bottom:clamp(26px,3.6vw,46px);
   min-height:1.06em;
