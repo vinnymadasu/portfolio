@@ -73,6 +73,14 @@ button,select{font:inherit;color:inherit;background:none;border:none;cursor:poin
 .gbtn:hover{color:var(--indigo);border-color:var(--indigo);transform:translateY(-1px)}
 .gbtn.icon{padding:8px 10px}
 .gbtn.icon svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
+.langPick{position:relative;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+  letter-spacing:.04em;border-radius:999px;padding:8px 13px;cursor:pointer;color:#fff;transition:.22s var(--e);
+  background:linear-gradient(118deg,var(--indigo),var(--violet))}
+.langPick:hover{transform:translateY(-1px);box-shadow:0 10px 22px -12px var(--violet)}
+.langPick svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;flex:none}
+.langPick select{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.langPick:focus-within{outline:2.5px solid var(--indigo);outline-offset:3px}
+
 kbd{font-family:"IBM Plex Mono",monospace;font-size:10.5px;border:1px solid var(--rule);border-radius:4px;padding:1px 5px;background:var(--paper)}
 @media(max-width:720px){.gbtn .lbl{display:none}}
 
