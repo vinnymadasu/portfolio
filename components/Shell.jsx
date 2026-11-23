@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import TopBar from './TopBar';
-import Machine from './Machine';
+import Intro from './Intro';
 import Routing from './Routing';
 import Finder from './Finder';
 import Consignment from './Consignment';
@@ -33,8 +33,8 @@ export default function Shell() {
 
   return (
     <>
+      <Intro />
       <TopBar onOpenPalette={openPalette} />
-      <Machine />
       <Routing />
 
       <header className="hero">
