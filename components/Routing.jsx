@@ -5,6 +5,17 @@ import { useLocale } from './LocaleProvider';
 import { ORIGIN, WORK_DAY } from '@/lib/markets';
 import { distanceKm, timeIn, hourDiff, formatDiff, overlapWindow } from '@/lib/geo';
 
+/** Which greeting fits the hour it actually is where the visitor is sitting. */
+function greetKey(tz, date) {
+  const h = Number(
+    new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', hour12: false }).format(date)
+  );
+  if (h >= 5 && h < 12) return 'greet.morning';
+  if (h >= 12 && h < 17) return 'greet.afternoon';
+  if (h >= 17 && h < 22) return 'greet.evening';
+  return 'greet.night';
+}
+
 /** 24-hour strip showing when the two working days actually meet. */
 function OverlapBar({ overlap, t }) {
   const pct = (h) => (Math.min(Math.max(h, 0), 24) / 24) * 100;
@@ -64,6 +75,10 @@ export default function Routing() {
   return (
     <section className="routing">
       <div className="wrap">
+        <p className="greet">
+          {mounted ? `${t(greetKey(market.tz, now))}, ${market.city}.` : '\u00a0'}
+        </p>
+
         <div className="rgrid">
           <div className="node">
             <div className="lab mono">{t('route.origin')}</div>

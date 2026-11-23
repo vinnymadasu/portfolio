@@ -5,11 +5,11 @@ import { useLocale } from './LocaleProvider';
 
 export default function TopBar({ onOpenPalette }) {
   const { t, lang, langs, langNames, setLang } = useLocale();
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    setTheme(document.documentElement.dataset.theme || 'light');
+    setTheme(document.documentElement.dataset.theme || 'dark');
     let frame = 0;
     const onScroll = () => {
       if (frame) return;
@@ -30,7 +30,7 @@ export default function TopBar({ onOpenPalette }) {
     document.documentElement.dataset.theme = next;
     try { window.localStorage.setItem('vm-theme', next); } catch {}
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', next === 'dark' ? '#120f1a' : '#fffaf3');
+    if (meta) meta.setAttribute('content', next === 'dark' ? '#08070e' : '#fbf9f6');
   }
 
   return (

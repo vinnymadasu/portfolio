@@ -57,15 +57,16 @@ export default function Finder() {
 
         <div className="fcount mono" aria-live="polite">{rows.length} / {data.items.length}</div>
 
-        <div className="fgrid">
-          {rows.map(([category, title, desc]) => (
+        <div className="fidx">
+          {rows.map(([category, title, desc], i) => (
             <div className="frow" key={title} data-c={Math.max(0, data.cats.indexOf(category) - 1)}>
-              <div className="fcat mono">{category}</div>
-              <div className="ftitle">{title}</div>
-              <div className="fdesc">{desc}</div>
+              <span className="fnum mono">{String(i + 1).padStart(2, '0')}</span>
+              <span className="ftitle">{title}</span>
+              <span className="fcat mono">{category}</span>
+              <span className="fdesc">{desc}</span>
             </div>
           ))}
-          {rows.length === 0 ? <div className="fnone">—</div> : null}
+          {rows.length === 0 ? <div className="fnone">\u2014</div> : null}
         </div>
       </div>
     </section>
