@@ -2,7 +2,7 @@
   "name": "vineeth-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio of Vineeth Rao Madasu — full-stack developer, Hyderabad.",
+  "description": "Portfolio of Vineeth Rao Madasu \u2014 full-stack developer, Hyderabad.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +12,7 @@
   "dependencies": {
     "next": "15.1.6",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "three": "^0.171.0"
   }
 }
