@@ -2,7 +2,7 @@
 
 import { useLocale } from './LocaleProvider';
 
-export default function Consignment({ index, id, name, href, image, alt, prefix, reverse }) {
+export default function Consignment({ index, id, name, href, image, alt, prefix, reverse, tone }) {
   const { t } = useLocale();
   const specs = [1, 2, 3, 4].map((n) => [t(`${prefix}.k${n}`), t(`${prefix}.v${n}`)]);
   const shot = (
@@ -38,7 +38,7 @@ export default function Consignment({ index, id, name, href, image, alt, prefix,
   );
 
   return (
-    <section className="sec deep">
+    <section className="sec" style={{ '--sc': tone }}>
       <div className="wrap">
         <div className="shead">
           <span className="snum mono">{index}</span>

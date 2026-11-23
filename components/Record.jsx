@@ -12,7 +12,7 @@ const ROLES = [
 export default function Record() {
   const { t } = useLocale();
   return (
-    <section className="sec deep" id="record">
+    <section style={{ '--sc': 'var(--violet)' }} className="sec" id="record">
       <div className="wrap">
         <div className="shead">
           <span className="snum mono">04</span>

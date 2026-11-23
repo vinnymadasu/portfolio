@@ -11,6 +11,8 @@ import Contact from './Contact';
 import CommandPalette from './CommandPalette';
 import { useLocale } from './LocaleProvider';
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function Shell() {
   const { t } = useLocale();
   const [palOpen, setPalOpen] = useState(false);
@@ -35,8 +37,17 @@ export default function Shell() {
 
       <header className="hero">
         <div className="wrap">
-          <h1 dangerouslySetInnerHTML={{ __html: t('hero.h') }} />
-          <p className="heroSub">{t('hero.sub')}</p>
+          <div className="heroGrid">
+            <div>
+              <h1 dangerouslySetInnerHTML={{ __html: t('hero.h') }} />
+              <p className="heroSub">{t('hero.sub')}</p>
+            </div>
+            <div className="portrait">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={`${base}/vineeth.jpg`} alt="Vineeth Rao Madasu" width={500} height={500} />
+              <span className="openBadge"><i />{t('s.availv')}</span>
+            </div>
+          </div>
           <div className="strip">
             <div className="cellx"><div className="k mono">{t('s.base')}</div><div className="v">Hyderabad, India</div></div>
             <div className="cellx"><div className="k mono">{t('s.avail')}</div><div className="v">{t('s.availv')}</div></div>
@@ -48,14 +59,16 @@ export default function Shell() {
 
       <div id="work">
         <Consignment
+          tone="var(--indigo)"
           index="01" id="indiaunbox.com" name="IndiaUnbox" prefix="iu"
-          href="https://indiaunbox.com" image="indiaunbox.jpg"
+          href="https://indiaunbox.com" image={`${base}/indiaunbox.jpg`}
           alt="IndiaUnbox homepage showing a live sourcing order moving through verification stages"
         />
       </div>
       <Consignment
+        tone="var(--teal)"
         index="02" id="skilledmba.com" name="SkilledMBA" prefix="sm" reverse
-        href="https://skilledmba.com" image="skilledmba.jpg"
+        href="https://skilledmba.com" image={`${base}/skilledmba.jpg`}
         alt="SkilledMBA homepage showing search and subject filters over a catalogue of AI tools"
       />
 

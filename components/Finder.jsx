@@ -19,7 +19,7 @@ export default function Finder() {
   }, [data, cat, q]);
 
   return (
-    <section className="sec" id="build">
+    <section className="sec tint" id="build" style={{ '--sc': 'var(--amber)' }}>
       <div className="wrap">
         <div className="shead">
           <span className="snum mono">03</span>
@@ -59,7 +59,7 @@ export default function Finder() {
 
         <div className="fgrid">
           {rows.map(([category, title, desc]) => (
-            <div className="frow" key={title}>
+            <div className="frow" key={title} data-c={Math.max(0, data.cats.indexOf(category) - 1)}>
               <div className="fcat mono">{category}</div>
               <div className="ftitle">{title}</div>
               <div className="fdesc">{desc}</div>

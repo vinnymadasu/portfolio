@@ -6,7 +6,7 @@ import { PROFILES } from '@/lib/links';
 export default function Profiles() {
   const { t } = useLocale();
   return (
-    <section className="sec" id="profiles">
+    <section style={{ '--sc': 'var(--emerald)' }} className="sec" id="profiles">
       <div className="wrap">
         <div className="shead">
           <span className="snum mono">05</span>

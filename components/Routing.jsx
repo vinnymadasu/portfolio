@@ -76,6 +76,13 @@ export default function Routing() {
 
           <div className="arc" aria-hidden="true">
             <svg viewBox="0 0 400 44" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="var(--emerald)" />
+                  <stop offset="45%" stopColor="var(--indigo)" />
+                  <stop offset="100%" stopColor="var(--rose)" />
+                </linearGradient>
+              </defs>
               <path className="arcBase" d="M4,26 Q200,0 396,26" />
               <path className="arcLive" d="M4,26 Q200,0 396,26" key={market.id} />
             </svg>

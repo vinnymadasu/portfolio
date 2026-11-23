@@ -19,7 +19,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="sec" id="contact">
+    <section style={{ '--sc': 'var(--rose)' }} className="sec" id="contact">
       <div className="wrap">
         <div className="shead">
           <span className="snum mono">06</span>
