@@ -60,7 +60,7 @@ button,select{font:inherit;color:inherit;background:none;border:none;cursor:poin
 
 /* ---------- top bar ---------- */
 .progress{position:fixed;top:0;left:0;height:3px;z-index:80;
-  background:linear-gradient(90deg,var(--indigo),var(--violet),var(--rose),var(--amber),var(--emerald))}
+  background:linear-gradient(90deg,var(--indigo),var(--violet),var(--rose))}
 .bar{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);
   background:color-mix(in srgb,var(--paper) 86%,transparent);border-bottom:1px solid var(--rule)}
 .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:62px}
@@ -171,7 +171,7 @@ h1 em{font-style:normal;background:linear-gradient(100deg,var(--indigo),var(--vi
 .cellx .v{font-family:"Archivo",sans-serif;font-weight:700;font-size:14.5px;margin-top:4px;letter-spacing:-.01em}
 
 /* ---------- sections ---------- */
-.sec{padding:clamp(52px,7vw,96px) 0;position:relative}
+.sec{padding:clamp(52px,7vw,96px) 0;position:relative;scroll-margin-top:72px}
 .sec.tint{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .shead{display:flex;align-items:center;gap:14px;margin-bottom:clamp(20px,2.8vw,32px)}
 .snum{font-family:"Archivo Black",sans-serif;font-size:13px;letter-spacing:.02em;
@@ -190,6 +190,7 @@ p.bd+p.bd{margin-top:1em}
 @media(min-width:900px){.cons{grid-template-columns:1fr 1fr}}
 .shot{display:block;border-radius:18px;overflow:hidden;border:1px solid var(--rule);
   background:var(--surface);box-shadow:var(--shadow);transition:transform .45s var(--e)}
+@media(min-width:900px){.shot{position:sticky;top:86px}}
 .shot:hover{transform:translateY(-6px) rotate(-.4deg)}
 .shotBar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 14px;
   font-size:10.5px;letter-spacing:.08em;color:#fff;
@@ -198,7 +199,7 @@ p.bd+p.bd{margin-top:1em}
 .live i{width:6px;height:6px;border-radius:50%;background:#fff;animation:blink 2s infinite}
 .cname{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(26px,3.6vw,46px);
   letter-spacing:-.035em;line-height:1;
-  background:linear-gradient(100deg,var(--sc,var(--indigo)),var(--rose));
+  background:linear-gradient(104deg,var(--sc,var(--indigo)),color-mix(in srgb,var(--sc,var(--indigo)) 45%,var(--violet)));
   -webkit-background-clip:text;background-clip:text;color:transparent}
 :lang(ja) .cname,:lang(hi) .cname{font-family:"Archivo",sans-serif;font-weight:700}
 .cwhat{margin-top:9px;font-size:15px;color:var(--mute)}
@@ -287,7 +288,7 @@ p.bd+p.bd{margin-top:1em}
 .mailrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px}
 .mailbig{font-family:"Archivo Black",Impact,sans-serif;font-size:clamp(19px,3.4vw,38px);letter-spacing:-.035em;
   text-decoration:none;word-break:break-word;
-  background:linear-gradient(100deg,var(--indigo),var(--violet) 45%,var(--rose));
+  background:linear-gradient(100deg,var(--indigo),var(--violet));
   -webkit-background-clip:text;background-clip:text;color:transparent}
 :lang(ja) .mailbig,:lang(hi) .mailbig{font-family:"Archivo",sans-serif;font-weight:700}
 .copy{font-size:12.5px;border:1.5px solid var(--rule);border-radius:999px;padding:8px 15px;color:var(--mute);
