@@ -3,10 +3,10 @@
 import { useLocale } from './LocaleProvider';
 
 const ROLES = [
-  { when: '2026.07 —', key: 'r1', org: null },
+  { when: '2026.07 — 2026.10', key: 'r1', org: null },
   { when: '2024.12 — 2026.07', key: 'r2', org: 'Collegedunia' },
   { when: '2024.08 — 2024.12', key: 'r3', org: 'Startek India' },
-  { when: '2020.09 — 2024.07', key: 'r4', org: 'VSAT Analytics' },
+  { when: '2020.09 — 2024.07', key: 'r4', org: 'VSAT Analytics', pt: true },
 ];
 
 export default function Record() {
@@ -26,7 +26,10 @@ export default function Record() {
               <div className="rwhen mono">{r.when === '2026.07 —' ? `2026.07 — ${t('ui.now')}` : r.when}</div>
               <div>
                 <h4>{t(`${r.key}.t`)}</h4>
-                <div className="rorg">{r.org || t('r1.o')}</div>
+                <div className="rorg">
+                  {r.org || t('r1.o')}
+                  {r.pt ? <span className="rpt">{'\u00b7'} {t('s.pt')}</span> : null}
+                </div>
                 <p>{t(`${r.key}.p`)}</p>
               </div>
             </div>
