@@ -28,7 +28,7 @@ export default function Record() {
                 <h4>{t(`${r.key}.t`)}</h4>
                 <div className="rorg">
                   {r.org || t('r1.o')}
-                  {r.pt ? <span className="rpt">{'\u00b7'} {t('s.pt')}</span> : null}
+                  {r.pt ? <span className="rpt">{' \u00b7 '}{t('s.pt')}</span> : null}
                 </div>
                 <p>{t(`${r.key}.p`)}</p>
               </div>
